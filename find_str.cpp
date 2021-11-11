@@ -1,25 +1,24 @@
 #include "str_easy.h"
 
-int itc_find_str(string str1,string str2)
+int itc_find_str(string str1, string str2)
 {
-    long long lstr1=itc_len(str1);
-    long long lstr2=itc_len(str2);
-    int k=0;
-    for(long long i=0;i<lstr1;i++)
-    {
-
-        if(str1[i]==str2[k])
-        {
-            k=k+1;
-            if(k==lstr2)
-            {
-            return i-k+1;
-            }
-        }
-        else
-        {
-            k=0;
-        }
-    }
-    return -1;
+	long long ind = 0, st1 = itc_len(str1), st2 = itc_len(str2), otv = -1;
+	for (int i = 0; i < st1; i++) {
+		if (str1[i] == str2[0]) {
+			otv = i;
+			for (int j = 0; j < st2; j++) {
+				if (str1[j + i] == str2[ind]) {
+					ind++;
+				}
+				else {
+					ind = 0;
+					break;
+				}
+			}
+		}
+		if (ind == st2) {
+			break;
+		}
+	}
+	return(otv);
 }
