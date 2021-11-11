@@ -1,12 +1,9 @@
 #include "str_easy.h"
 
-string itc_reverse_str(string str){
-    long long i = itc_len(str) - 1, k=0;
+string itc_reverse_str(string str) { // 8
     string rev = "";
-    while (k<itc_len(str)){
-        rev+=str[i];
-        i--;
-        k++;
+    for (int n1 = itc_len(str); n1 > 0; n1--) {
+        rev += str[n1 - 1];
     }
-    return rev;
+    return txt;
 }
