@@ -9,14 +9,18 @@ int itc_count_char_in_str(char ch, string str){
     return  kol;
 }
 
-string itc_even_place(string str){
-    if (itc_len(str) <= 1) {
+string itc_even_place(string str)
+{
+	if (itc_len(str) <= 1) {
 		return "-1";
-    }
-    string per = "";
-    long long a=0;
-    for (int i=1;i < itc_len(str); i+=2){
-        per=per+str[i];
-    }
-    return per;
+	}
+	string srt = "";
+	long long a = 0, len = itc_len(str) - 1;
+	while (a <= len) {
+		if ((a + 1) % 2 == 0) {
+			srt = srt + str[a];
+		}
+		a++;
+	}
+	return (srt);
 }
